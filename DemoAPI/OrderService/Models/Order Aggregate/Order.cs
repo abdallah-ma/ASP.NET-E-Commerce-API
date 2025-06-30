@@ -1,0 +1,40 @@
+﻿using DemoAPI.Common;
+using OrderService.Models;
+
+namespace OrderService.Models
+{
+    public class Order : BaseEntity
+    {
+
+        public Order()
+        {
+
+        }
+
+        public Order(Address shippingAddress, DeliveryMethod deliveryMethod, decimal subTotal, string paymentIntentId, string basketId)
+        {
+            ShippingAddress = shippingAddress;
+            DeliveryMethod = deliveryMethod;
+            SubTotal = subTotal;
+            PaymentIntentId = paymentIntentId;
+        }
+
+        public string BuyerEmail { get; set; } 
+        public Address ShippingAddress { get; set; }
+
+        public DateTimeOffset OrderDate { get; set; } = DateTimeOffset.UtcNow;
+
+        public DeliveryMethod DeliveryMethod { get; set; }
+
+        public OrderStatus OrderStatus { get; set; } = OrderStatus.Pending;
+
+        public ICollection<OrderItem> Items { get; set; } = new HashSet<OrderItem>();
+
+        public decimal SubTotal { get; set; }
+
+        public decimal GetTotal() => SubTotal + DeliveryMethod.Cost;
+
+        public string? PaymentIntentId { get; set; }
+
+    }
+}

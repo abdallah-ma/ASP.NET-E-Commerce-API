@@ -1,0 +1,128 @@
+[
+  {
+    "Name": "Double Caramel Frappuccino",
+    "Price": 200,
+    "PictureUrl": "/Images/Products/Hashbrown.jfif",
+    "CategoryId": 1,
+    "BrandId": 1
+  },
+    {
+        "Name": "White Chocolate Mocha Frappuccino",
+        "Price": 150,
+        "PictureUrl": "images/products/sb-ang2.png",
+        "CategoryId": 1,
+        "BrandId": 1
+    },
+    {
+        "Name": "Iced Cafe Latte",
+        "Price": 180,
+        "PictureUrl": "images/products/sb-core1.png",
+        "CategoryId": 2,
+        "BrandId": 1
+    },
+    {
+        "Name": "White Chocolate Mocha",
+        "Price": 300,
+        "PictureUrl": "images/products/sb-core2.png",
+        "CategoryId": 3,
+        "BrandId": 2
+    },
+    {
+        "Name": "Iced Caramel Macchiato",
+        "Price": 250,
+        "PictureUrl": "images/products/sb-react1.png",
+        "CategoryId": 4,
+        "BrandId": 1
+    },
+    {
+        "Name": "Hot Caramel Macchiato",
+        "Price": 120,
+        "PictureUrl": "images/products/sb-ts1.png",
+        "CategoryId": 4,
+        "BrandId": 5
+    },
+    {
+        "Name": "Iced Matcha Latte",
+        "Price": 10,
+        "PictureUrl": "images/products/hat-core1.png",
+        "CategoryId": 5,
+        "BrandId": 2
+    },
+    {
+        "Name": "Honey Cake",
+        "Price": 8,
+        "PictureUrl": "images/products/hat-react1.png",
+        "CategoryId": 6,
+        "BrandId": 1
+    },
+    {
+        "Name": "Blueberry Cheesecake",
+        "Price": 15,
+        "PictureUrl": "images/products/hat-react2.png",
+        "CategoryId": 6,
+        "BrandId": 1
+    },
+    {
+        "Name": "Glazed Donuts",
+        "Price": 18,
+        "PictureUrl": "images/products/glove-code1.png",
+        "CategoryId": 7,
+        "BrandId": 3
+    },
+    {
+        "Name": "Greek Salad",
+        "Price": 15,
+        "PictureUrl": "images/products/glove-code2.png",
+        "CategoryId": 7,
+        "BrandId": 1
+    },
+    {
+        "Name": "Iced Black Tea Lemonade",
+        "Price": 16,
+        "PictureUrl": "images/products/glove-react1.png",
+        "CategoryId": 4,
+        "BrandId": 4
+    },
+    {
+        "Name": "Iced London Fog Tea Latte",
+        "Price": 14,
+        "PictureUrl": "images/products/glove-react2.png",
+        "CategoryId": 4,
+        "BrandId": 4
+    },
+    {
+        "Name": "Turkey Bacon, Cheddar & Egg White Sandwich",
+        "Price": 250,
+        "PictureUrl": "images/products/boot-redis1.png",
+        "CategoryId": 3,
+        "BrandId": 6
+    },
+    {
+        "Name": "Core Red Boots",
+        "Price": 189,
+        "PictureUrl": "images/products/boot-core2.png",
+        "CategoryId": 3,
+        "BrandId": 2
+    },
+    {
+        "Name": "Double-Smoked Bacon, Cheddar & Egg Sandwich",
+        "Price": 199,
+        "PictureUrl": "images/products/boot-core1.png",
+        "CategoryId": 3,
+        "BrandId": 2
+    },
+    {
+        "Name": "Iced Chai Tea Latte with Oleato Golden Foam",
+        "Price": 150,
+        "PictureUrl": "images/products/boot-ang2.png",
+        "CategoryId": 3,
+        "BrandId": 1
+    },
+    {
+        "Name": "Dragon Drink® Starbucks Refreshers® Beverage with Oleato Golden Foam",
+        "Price": 180,
+        "PictureUrl": "images/products/boot-ang1.png",
+        "CategoryId": 3,
+        "BrandId": 1
+    }
+]
