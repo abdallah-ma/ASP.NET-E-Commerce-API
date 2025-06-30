@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>DemoAPI.Common</id>
+    <version>1.0.1</version>
+    <authors>DemoAPI.Common</authors>
+    <description>Package Description</description>
+    <repository type="git" />
+    <dependencies>
+      <group targetFramework="net9.0">
+        <dependency id="MassTransit.AspNetCore" version="7.3.1" exclude="Build,Analyzers" />
+        <dependency id="MassTransit.RabbitMQ" version="8.5.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.AspNetCore.Mvc" version="2.3.0" exclude="Build,Analyzers" />
+        <dependency id="Microsoft.EntityFrameworkCore" version="9.0.6" exclude="Build,Analyzers" />
+        <dependency id="StackExchange.Redis" version="2.8.41" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="D:\DemoAPI.Common\DemoAPI.Common\bin\Release\net9.0\DemoAPI.Common.dll" target="lib\net9.0\DemoAPI.Common.dll" />
+  </files>
+</package>
