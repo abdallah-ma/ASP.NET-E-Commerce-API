@@ -38,7 +38,6 @@ namespace PaymentService
         public override async Task<GrpcBasket> CreateOrUpdatePaymentIntent(GrpcBasketId basketId , ServerCallContext context )
         {
             
-            Console.WriteLine($"\n\n\n\n------------{_configuration["Stripe:SecretKey"]}-----------" );
             StripeConfiguration.ApiKey = _configuration["Stripe:SecretKey"];
 
             var GrpcBasketId = new GrpcBasketId { Id = basketId.Id };
