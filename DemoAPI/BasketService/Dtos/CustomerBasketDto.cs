@@ -14,7 +14,7 @@ namespace BasketService.Dtos
 
         public int? DeliveryMethodId { get; set; }
 
-        public List<BasketItem> Items { get; set; } = new List<BasketItem>();
+        public List<BasketItemDto> Items { get; set; } = new List<BasketItemDto>();
 
     }
 }

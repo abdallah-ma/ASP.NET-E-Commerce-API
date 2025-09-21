@@ -1,44 +1,52 @@
 ﻿using OrderService.Interfaces;
 using OrderService.Models;
-using DemoAPI.Common.Interfaces;
 using OrderService.Specifications;
+using Grpc.Net.Client;
+using DemoAPI.Common.Interfaces;
+using Microsoft.AspNetCore.Http.Features;
+
+using BasketClient = OrderService.BasketGrpcService.BasketGrpcServiceClient;
+using PaymentClient = OrderService.PaymentGrpcService.PaymentGrpcServiceClient;
+using ProductClient = OrderService.ProductGrpcService.ProductGrpcServiceClient;
 
 namespace OrderService
 {
     public class OrderService : IOrderService
     {
-        private readonly IBasketClient _basketClient;
-        private readonly IPaymentClient _paymentClient;
+        private readonly BasketClient _basketClient;
+        private readonly PaymentClient _paymentClient;
 
-        private readonly IProductClient _productClient;
+        private readonly ProductClient _productClient;
         private readonly IUnitOfWork _unitOfWork;
 
 
-        public OrderService(IBasketClient basketClient,
-            IPaymentClient paymentClient,
-            IProductClient productClient,
+        public OrderService(
+            BasketClient basketClient,
+            PaymentClient paymentClient,
+            ProductClient productClient,
             IUnitOfWork unitOfWork)
         {
             _basketClient = basketClient;
             _paymentClient = paymentClient;
             _productClient = productClient;
             _unitOfWork = unitOfWork;
+
         }
 
 
-        public async Task<Order> CreateOrderAsync(string BuyerEmail, Address shippingAddress, int deliveryMethodId, string basketId)
+        public async Task<Order?> CreateOrderAsync(string BuyerEmail, Address shippingAddress, int deliveryMethodId, string basketId)
         {
-
-            var Basket = await _basketClient.GetBasketAsync(basketId);
-
+            Console.WriteLine("CreateOrderAsync called");
+            var Basket =  await _basketClient.GetBasketAsync(new GrpcBasketId { Id = basketId });
+            Console.WriteLine("Basket retrieved\n\n\n\n\n");
             var OrderItems = new List<OrderItem>();
 
             if (Basket?.Items?.Count > 0)
             {
                 foreach (var item in Basket.Items)
                 {
-                    var Product = await _productClient.GetProductAsync(item.Id);
-
+                    var Product =  _productClient.GetProduct(new GrpcProductId { Id = item.Id });
+                    Console.WriteLine($"Product retrieved: {Product.Name}");
                     var OrderItem = new OrderItem
                     {
                         Product = new ProductItemOrdered
@@ -48,7 +56,7 @@ namespace OrderService
                             PictureUrl = Product.PictureUrl
                         },
                         Quantity = item.Quantity,
-                        Price = Product.Price
+                        Price = (decimal)Product.Price
                     };
 
                     OrderItems.Add(OrderItem);
@@ -67,7 +75,8 @@ namespace OrderService
             if (ExistingOrder != null)
             {
                 OrderRepo.Delete(ExistingOrder);
-                await _paymentClient.CreateOrUpdatePaymentIntentAsync(Basket.Id);
+                await _paymentClient.CreateOrUpdatePaymentIntentAsync(new GrpcBasketId { Id = Basket.Id });
+                Console.WriteLine("Existing order deleted and payment intent updated");
             }
 
             var order = new Order
@@ -86,7 +95,7 @@ namespace OrderService
 
             return result > 0 ? order : null;
         }
-
+        
         public Task<Order> GetUserOrderByIdAsync(int id, string buyerEmail)
         {
             OrderSpecifications spec = new OrderSpecifications(id, buyerEmail);
@@ -106,8 +115,8 @@ namespace OrderService
         {
             _unitOfWork.Repository<Order>().Update(order);
             var result = await _unitOfWork.CompleteAsync();
-        
-        }    
+
+        }
 
         public async Task<IReadOnlyList<DeliveryMethod>> GetDeliveryMethodsAsync()
         {

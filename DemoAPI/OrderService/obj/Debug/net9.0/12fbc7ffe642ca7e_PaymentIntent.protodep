@@ -1,0 +1,3 @@
+obj\Debug\net9.0/PaymentIntent.cs \
+obj\Debug\net9.0/PaymentIntentGrpc.cs: Protos/Common.proto\
+ Protos/PaymentIntent.proto

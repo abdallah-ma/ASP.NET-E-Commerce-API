@@ -5,10 +5,10 @@ namespace PaymentService.Interfaces
     public interface IOrderClient
     {
 
-        Task<DeliveryMethod> GetDeliveryMethodAsync(int id);
+        Task<GrpcDeliveryMethod> GetDeliveryMethodAsync(int id);
 
-        Task<Order> GetOrderByPaymentIntentIdAsync(string paymentIntentId);
-        Task<Order> UpdateOrderAsync(Order order);
+        Task<GrpcOrder> GetOrderByPaymentIntentIdAsync(GrpcPaymentIntentId paymentIntentId);
+        Task<GrpcOrder> UpdateOrderAsync(GrpcOrder order);
 
     }
 }

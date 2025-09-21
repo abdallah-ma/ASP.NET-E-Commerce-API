@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option csharp_namespace = "OrderService";
+
+package MyPackage;
+
+
+message GrpcProductItemOrdered{
+    int32 ProductId = 1;
+    string Name = 2;
+    string PictureUrl = 3;
+}

@@ -8285,11 +8285,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\DemoAPI.Common\\DemoAPI.Common\\DemoAPI.Common.csproj",
+      "projectUniqueName": "D:\\ASP.NET-E-Commerce-API\\DemoAPI.Common\\DemoAPI.Common\\DemoAPI.Common.csproj",
       "projectName": "DemoAPI.Common",
-      "projectPath": "D:\\DemoAPI.Common\\DemoAPI.Common\\DemoAPI.Common.csproj",
+      "projectPath": "D:\\ASP.NET-E-Commerce-API\\DemoAPI.Common\\DemoAPI.Common\\DemoAPI.Common.csproj",
       "packagesPath": "C:\\Users\\Abdallah Mahmoud\\.nuget\\packages\\",
-      "outputPath": "D:\\DemoAPI.Common\\DemoAPI.Common\\obj\\",
+      "outputPath": "D:\\ASP.NET-E-Commerce-API\\DemoAPI.Common\\DemoAPI.Common\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "D:\\visual studio shared comp\\NuGetPackages"

@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option csharp_namespace = "OrderService";
+
+package MyPackage;
+
+
+enum GrpcOrderStatus{
+    Pending = 0;
+    PaymenteReceived = 1;
+    PaymentFailed = 2;
+}

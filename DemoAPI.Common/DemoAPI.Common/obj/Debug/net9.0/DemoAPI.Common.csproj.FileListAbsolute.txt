@@ -10,3 +10,16 @@ D:\DemoAPI.Common\DemoAPI.Common\obj\Debug\net9.0\DemoAPI.Common.dll
 D:\DemoAPI.Common\DemoAPI.Common\obj\Debug\net9.0\refint\DemoAPI.Common.dll
 D:\DemoAPI.Common\DemoAPI.Common\obj\Debug\net9.0\DemoAPI.Common.pdb
 D:\DemoAPI.Common\DemoAPI.Common\obj\Debug\net9.0\ref\DemoAPI.Common.dll
+D:\ASP.NET-E-Commerce-API\DemoAPI.Common\DemoAPI.Common\bin\Debug\net9.0\DemoAPI.Common.deps.json
+D:\ASP.NET-E-Commerce-API\DemoAPI.Common\DemoAPI.Common\bin\Debug\net9.0\DemoAPI.Common.dll
+D:\ASP.NET-E-Commerce-API\DemoAPI.Common\DemoAPI.Common\bin\Debug\net9.0\DemoAPI.Common.pdb
+D:\ASP.NET-E-Commerce-API\DemoAPI.Common\DemoAPI.Common\obj\Debug\net9.0\DemoAPI.Common.csproj.AssemblyReference.cache
+D:\ASP.NET-E-Commerce-API\DemoAPI.Common\DemoAPI.Common\obj\Debug\net9.0\DemoAPI.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\ASP.NET-E-Commerce-API\DemoAPI.Common\DemoAPI.Common\obj\Debug\net9.0\DemoAPI.Common.AssemblyInfoInputs.cache
+D:\ASP.NET-E-Commerce-API\DemoAPI.Common\DemoAPI.Common\obj\Debug\net9.0\DemoAPI.Common.AssemblyInfo.cs
+D:\ASP.NET-E-Commerce-API\DemoAPI.Common\DemoAPI.Common\obj\Debug\net9.0\DemoAPI.Common.csproj.CoreCompileInputs.cache
+D:\ASP.NET-E-Commerce-API\DemoAPI.Common\DemoAPI.Common\obj\Debug\net9.0\DemoAPI.Common.sourcelink.json
+D:\ASP.NET-E-Commerce-API\DemoAPI.Common\DemoAPI.Common\obj\Debug\net9.0\DemoAPI.Common.dll
+D:\ASP.NET-E-Commerce-API\DemoAPI.Common\DemoAPI.Common\obj\Debug\net9.0\refint\DemoAPI.Common.dll
+D:\ASP.NET-E-Commerce-API\DemoAPI.Common\DemoAPI.Common\obj\Debug\net9.0\DemoAPI.Common.pdb
+D:\ASP.NET-E-Commerce-API\DemoAPI.Common\DemoAPI.Common\obj\Debug\net9.0\ref\DemoAPI.Common.dll

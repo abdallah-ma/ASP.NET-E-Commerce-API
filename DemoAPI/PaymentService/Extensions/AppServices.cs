@@ -1,6 +1,9 @@
 using PaymentService.Interfaces;
-using PaymentService.Clients;
+using PaymentService;
 
+using BasketGrpcClient = PaymentService.BasketGrpcService.BasketGrpcServiceClient;
+using ProductGrpcClient = PaymentService.ProductGrpcService.ProductGrpcServiceClient;
+using OrderGrpcClient = PaymentService.OrderGrpcService.OrderGrpcServiceClient;
 
 namespace PaymentService.Extensions
 {
@@ -9,25 +12,24 @@ namespace PaymentService.Extensions
         public static IServiceCollection AddServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddControllers();
-            services.AddScoped<IPaymentService, PaymentService>();
 
-            services.AddHttpClient<IBasketClient, BasketClient>(client =>
+            services.AddGrpcClient<BasketGrpcClient>(o =>
             {
-                client.BaseAddress = new Uri(configuration["ServicesUrls:BasketUrl"]);
+                o.Address = new Uri(configuration["ServicesUrls:BasketUrl"]);
             });
 
-            services.AddHttpClient<IProductClient, ProductClient>(client =>
+            services.AddGrpcClient<ProductGrpcClient>(o =>
             {
-                client.BaseAddress = new Uri(configuration["ServicesUrls:ProductUrl"]);
+                o.Address = new Uri(configuration["ServicesUrls:ProductUrl"]);
             });
 
-            services.AddHttpClient<IOrderClient, OrderClient>(client =>
+            services.AddGrpcClient<OrderGrpcClient>(o =>
             {
-                client.BaseAddress = new Uri(configuration["ServicesUrls:OrderUrl"]);
+                o.Address = new Uri(configuration["ServicesUrls:OrderUrl"]);
             });
 
             return services;
         }
-        
+
     }
 }

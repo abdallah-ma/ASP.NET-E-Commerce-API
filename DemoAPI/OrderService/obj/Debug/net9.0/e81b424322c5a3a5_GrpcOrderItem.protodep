@@ -1,0 +1,2 @@
+obj\Debug\net9.0\order aggregate/GrpcOrderItem.cs: Protos/Order Aggregate/GrpcProductItemOrdered.proto\
+ Protos/Order Aggregate/GrpcOrderItem.proto

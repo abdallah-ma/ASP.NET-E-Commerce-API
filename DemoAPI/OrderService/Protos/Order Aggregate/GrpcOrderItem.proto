@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option csharp_namespace = "OrderService";
+
+package MyPackage;
+
+import "Order Aggregate/GrpcProductItemOrdered.proto";
+
+message GrpcOrderItem{
+    GrpcProductItemOrdered Product= 1;
+    int32 Quantity = 2;
+    double Price = 3;
+}

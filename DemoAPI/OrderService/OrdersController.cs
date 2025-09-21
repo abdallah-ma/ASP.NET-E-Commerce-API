@@ -9,12 +9,11 @@ using AutoMapper;
 using DemoAPI.Common.Errors;
 using Microsoft.AspNetCore.Authorization;
 using System.Security.Claims;
-using OrderService.Helpers;
 
-
-namespace DemoAPI.Controllers
+namespace OrderService.Controllers
 {
     [Authorize(AuthenticationSchemes = "Bearer")]
+    [ApiController]
     public class OrdersController : BaseAPIController
     {
         private readonly IOrderService _orderService;
@@ -34,6 +33,7 @@ namespace DemoAPI.Controllers
             var BuyerEmail = User.FindFirstValue(ClaimTypes.Email);
 
             var Address = _mapper.Map<AddressDto, Address>(order.ShipToAddress);
+
 
             var Order = await _orderService.CreateOrderAsync(BuyerEmail, Address, order.DeliveryMethodId, order.BasketId);
 

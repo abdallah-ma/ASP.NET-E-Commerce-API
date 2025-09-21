@@ -1,13 +1,15 @@
 ﻿using OrderService.Interfaces;
 using DemoAPI.Common.Errors;
-using OrderService.Clients;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using DemoAPI.Common.Interfaces;
 using DemoAPI.Common;
 using OrderService.Helpers;
-using System.Net.Http.Headers;
-using OrderService.Dtos;
+
+using BasketClient = OrderService.BasketGrpcService.BasketGrpcServiceClient;
+using PaymentClient = OrderService.PaymentGrpcService.PaymentGrpcServiceClient;
+using ProductClient = OrderService.ProductGrpcService.ProductGrpcServiceClient;
+using System.Net;
 
 namespace OrderService.Extensions
 {
@@ -23,29 +25,23 @@ namespace OrderService.Extensions
 
             var Configuration = Services.BuildServiceProvider().GetRequiredService<IConfiguration>();
 
-            Services.AddHttpClient<IBasketClient, BasketClient>(c =>
+            Services.AddGrpcClient<BasketClient>(o =>
             {
-                c.BaseAddress = new Uri(Configuration["ServicesUrls:BasketUrl"]);
-            });
+                o.Address = new Uri(Configuration.GetSection("ServicesUrls:BasketUrl").Value);
 
-            Services.AddHttpClient<IProductClient, ProductClient>(c =>
+            }).ConfigureChannel(o => o.HttpVersion = HttpVersion.Version20);
+
+            Services.AddGrpcClient<PaymentClient>(o =>
             {
-                c.BaseAddress = new Uri(Configuration["ServicesUrls:ProductUrl"]);
-            });
+                o.Address = new Uri(Configuration.GetSection("ServicesUrls:PaymentUrl").Value);
 
-            Services.AddHttpClient<IAccoutClient, AccountClient>(c =>
-                c.BaseAddress = new Uri(Configuration["ServicesUrls:AccountUrl"])
-            );
+            }).ConfigureChannel(o => o.HttpVersion = HttpVersion.Version20);
 
-            Services.AddHttpClient<IPaymentClient, PaymentClient>(async c =>
+            Services.AddGrpcClient<ProductClient>(o =>
             {
-                var AccountClient = Services.BuildServiceProvider().GetRequiredService<IAccoutClient>();
-                var LoginCreds = new LoginDto(Configuration["PaymentClientCreds:Password"] , Configuration["PaymentClientCreds:Email"]);
-                var Response = await AccountClient.Login(LoginCreds);
+                o.Address = new Uri(Configuration.GetSection("ServicesUrls:ProductUrl").Value);
 
-                c.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", Response.Token);
-                c.BaseAddress = new Uri(Configuration["ServicesUrls:PaymentUrl"]);
-            });
+            }).ConfigureChannel(o => o.HttpVersion = HttpVersion.Version20);
 
             Services.AddAutoMapper(M => M.AddProfile<MappingProfiles>());
 

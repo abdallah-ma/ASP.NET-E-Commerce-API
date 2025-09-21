@@ -1,0 +1,6 @@
+obj\Debug\net9.0/GrpcBasketService.cs \
+obj\Debug\net9.0/GrpcBasketServiceGrpc.cs: Protos/GrpcBasketItem.proto\
+ C:/Users/Abdallah Mahmoud/.nuget/packages/grpc.tools/2.72.0/build/native/include/google/protobuf/wrappers.proto\
+ Protos/GrpcBasket.proto\
+ Protos/GrpcBasketId.proto\
+ Protos/GrpcBasketService.proto

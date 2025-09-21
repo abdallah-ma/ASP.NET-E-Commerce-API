@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option csharp_namespace = "OrderService"; 
+
+package MyPackage;
+
+import "Product Aggregate/GrpcProduct.proto";
+import "Product Aggregate/GrpcProductId.proto";
+
+service ProductGrpcService { 
+    rpc GetProduct (GrpcProductId) returns (GrpcProduct); 
+}

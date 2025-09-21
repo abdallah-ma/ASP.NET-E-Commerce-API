@@ -6,7 +6,7 @@ using AutoMapper;
 using DemoAPI.Common;
 
 namespace BasketService.Controllers
-{
+{   
     public class BasketsController : BaseAPIController
     {
         private readonly IBasketRepository _basketRepository;
@@ -43,9 +43,15 @@ namespace BasketService.Controllers
         }
 
         [HttpDelete]
-        public async Task DeleteBasket(string id)
+        public async Task<ActionResult> DeleteBasket(string id)
         {
             var deleted = await _basketRepository.RemoveBasketAsync(id);
+            if (!deleted)
+            {
+               return BadRequest("Problem deleting the basket");
+            }
+
+            return Ok("Deleted Successfully");
 
         }
 

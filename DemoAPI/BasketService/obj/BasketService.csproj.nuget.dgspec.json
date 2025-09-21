@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DemoAPI\\BasketService\\BasketService.csproj": {}
+    "D:\\ASP.NET-E-Commerce-API\\DemoAPI\\BasketService\\BasketService.csproj": {}
   },
   "projects": {
-    "D:\\DemoAPI\\BasketService\\BasketService.csproj": {
+    "D:\\ASP.NET-E-Commerce-API\\DemoAPI\\BasketService\\BasketService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DemoAPI\\BasketService\\BasketService.csproj",
+        "projectUniqueName": "D:\\ASP.NET-E-Commerce-API\\DemoAPI\\BasketService\\BasketService.csproj",
         "projectName": "BasketService",
-        "projectPath": "D:\\DemoAPI\\BasketService\\BasketService.csproj",
+        "projectPath": "D:\\ASP.NET-E-Commerce-API\\DemoAPI\\BasketService\\BasketService.csproj",
         "packagesPath": "C:\\Users\\Abdallah Mahmoud\\.nuget\\packages\\",
-        "outputPath": "D:\\DemoAPI\\BasketService\\obj\\",
+        "outputPath": "D:\\ASP.NET-E-Commerce-API\\DemoAPI\\BasketService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\visual studio shared comp\\NuGetPackages"
@@ -59,6 +59,28 @@
             "DemoAPI.Common": {
               "target": "Package",
               "version": "[1.0.1, )"
+            },
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.32.0, )"
+            },
+            "Grpc.AspNetCore": {
+              "target": "Package",
+              "version": "[2.71.0, )"
+            },
+            "Grpc.AspNetCore.Web": {
+              "target": "Package",
+              "version": "[2.71.0, )"
+            },
+            "Grpc.Net.Client": {
+              "target": "Package",
+              "version": "[2.71.0, )"
+            },
+            "Grpc.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.72.0, )"
             },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",

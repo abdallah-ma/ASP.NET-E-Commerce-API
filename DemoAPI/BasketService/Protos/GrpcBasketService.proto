@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "BasketService";
+
+package MyPackage;
+
+import "GrpcBasket.proto";
+import "GrpcBasketItem.proto";
+import "GrpcBasketId.proto";
+
+service BasketGrpcService{
+    rpc GetBasket (GrpcBasketId) returns (GrpcBasket);
+    
+    rpc UpdateBasket (GrpcBasket) returns (GrpcBasket);
+}
+
+
+
+

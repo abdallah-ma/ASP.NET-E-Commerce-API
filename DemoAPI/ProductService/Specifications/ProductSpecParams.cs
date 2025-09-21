@@ -1,8 +1,10 @@
 ﻿
+using DemoAPI.Common;
+using ProductService.Models;
 
 namespace ProductService.Specifications
 {
-    public class ProductSpecParams
+    public class ProductSpecParams : BaseSpecifications<Product>
     {
         private int pageSize;
 

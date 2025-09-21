@@ -1,0 +1,3 @@
+obj\Debug\net9.0/Basket.cs \
+obj\Debug\net9.0/BasketGrpc.cs: Protos/Common.proto\
+ Protos/Basket.proto

@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option csharp_namespace = "BasketService";
+
+import "GrpcBasketItem.proto";
+import "google/protobuf/wrappers.proto";
+
+package MyPackage;
+
+
+message GrpcBasket{
+    string Id = 1;
+    string PaymentIntentId = 2;
+    string ClientSecret = 3;
+    google.protobuf.Int32Value DeliveryMethodId = 4;
+    repeated GrpcBasketItem Items = 5;
+}
+

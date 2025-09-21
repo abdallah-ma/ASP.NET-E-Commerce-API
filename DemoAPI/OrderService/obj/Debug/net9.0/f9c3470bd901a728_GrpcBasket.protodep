@@ -1,0 +1,2 @@
+obj\Debug\net9.0\basket aggregate/GrpcBasket.cs: Protos/Basket Aggregate/GrpcBasketItem.proto\
+ Protos/Basket Aggregate/GrpcBasket.proto

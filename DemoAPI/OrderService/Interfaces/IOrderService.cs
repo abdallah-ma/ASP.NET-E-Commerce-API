@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Grpc.Core;
+using OrderService;
 using OrderService.Models;
 
 namespace OrderService.Interfaces
@@ -10,7 +7,7 @@ namespace OrderService.Interfaces
     public interface IOrderService
     {
 
-        Task<Order> CreateOrderAsync(string BuyerEmail, Address shippingAddress, int deliveryMethodId, string basketId);
+        Task<Order?> CreateOrderAsync(string BuyerEmail, Address shippingAddress, int deliveryMethodId, string basketId);
 
         Task UpdateOrderAsync(Order order);
         Task<Order> GetUserOrderByIdAsync(int id, string buyerEmail);

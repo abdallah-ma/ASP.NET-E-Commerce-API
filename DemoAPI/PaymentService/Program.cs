@@ -1,14 +1,25 @@
 using DemoAPI.Common.MassTransit;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using PaymentService.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddServices(builder.Configuration);
-builder.Services.AddMassTransitServiceWithRabbitMQ();
+builder.Services.AddControllers();
 builder.Services.AddIdentityServices(builder.Configuration);
+builder.Services.AddMassTransitServiceWithRabbitMQ();
+builder.Services.AddGrpc();
+builder.Services.AddServices(builder.Configuration);
 
 builder.Services.AddSwaggerGen();
 builder.Services.AddOpenApi();
+
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenLocalhost(4057, listenOptions =>
+    {
+        listenOptions.Protocols = HttpProtocols.Http2;
+    });
+});
 
 var app = builder.Build();
 
@@ -29,9 +40,20 @@ app.UseHttpsRedirection();
 
 app.UseRouting();
 
+app.UseGrpcWeb();
+
 app.UseAuthentication();
 app.UseAuthorization();
 
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapGrpcService<PaymentService.PaymentMicroService>().EnableGrpcWeb();
+    
+});
+
+
 app.UseEndpoints(endpoints => endpoints.MapControllers());
+
+
 app.Run();
 

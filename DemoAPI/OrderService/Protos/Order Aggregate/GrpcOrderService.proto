@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "OrderService";
+
+package MyPackage;
+
+import "Order Aggregate/GrpcDeliveryMethodId.proto";
+import "Order Aggregate/GrpcDeliveryMethod.proto";
+import "Order Aggregate/GrpcPaymentIntentId.proto";
+import "Order Aggregate/GrpcOrder.proto";
+import "Order Aggregate/GrpcOrderUpdated.proto";
+
+service OrderGrpcService{
+    rpc GetDeliveryMethod (GrpcDeliveryMethodId) returns (GrpcDeliveryMethod);
+    
+    rpc GetOrderByPaymentIntentId (GrpcPaymentIntentId) returns (GrpcOrder);
+
+    rpc UpdateOrder (GrpcOrder) returns (GrpcOrderUpdated);
+}

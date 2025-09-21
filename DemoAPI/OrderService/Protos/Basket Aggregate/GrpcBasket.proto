@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "OrderService";
+
+import "Basket Aggregate/GrpcBasketItem.proto";
+
+package MyPackage;
+
+
+message GrpcBasket{
+    string Id = 1;
+    string PaymentIntentId = 2;
+    string ClientSecret = 3;
+    int32 DeliveryMethodId = 4;
+    repeated GrpcBasketItem Items = 5;
+}
+

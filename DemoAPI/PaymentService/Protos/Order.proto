@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+option csharp_namespace = "PaymentService";
+import "google/protobuf/timestamp.proto";
+package MyPackage;
+
+service OrderGrpcService{
+    rpc GetDeliveryMethod (GrpcDeliveryMethodId) returns (GrpcDeliveryMethod);
+    
+    rpc GetOrderByPaymentIntentId (GrpcPaymentIntentId) returns (GrpcOrder);
+
+    rpc UpdateOrder (GrpcOrder) returns (GrpcOrderUpdated);
+}
+
+message GrpcOrderUpdated{
+    bool IsUpdated = 1;
+}
+
+message GrpcPaymentIntentId{
+    string PaymentIntentId = 1;
+}
+
+message GrpcOrder{
+    int32 Id = 1;
+    string BuyerEmail = 2;
+    GrpcAddress ShippingAddress = 3;
+
+    google.protobuf.Timestamp OrderDate = 4;
+    GrpcDeliveryMethod DeliveryMethod = 5;
+    GrpcOrderStatus OrderStatus = 6;
+    repeated GrpcOrderItem Items = 7;
+    double Subtotal = 8;
+    string PaymentIntentId = 9; 
+}
+
+message GrpcDeliveryMethodId{
+    int32 Id = 1;
+}
+
+message GrpcDeliveryMethod{
+    int32 Id = 1;
+    string ShortName = 2;
+    string Description = 3;
+    double Cost = 4;
+    string DeliveryTimes = 5;
+}
+
+message GrpcAddress{
+    string FirstName = 1;
+    string LastName = 2;
+    string Country = 3;
+    string City = 4;
+    string Street = 5;
+}
+
+message GrpcProductItemOrdered{
+    int32 ProductId = 1;
+    string Name = 2;
+    string PictureUrl = 3;
+}
+
+message GrpcOrderItem{
+    GrpcProductItemOrdered Product= 1;
+    int32 Quantity = 2;
+    double Price = 3;
+}
+
+enum GrpcOrderStatus{
+    Pending = 0;
+    PaymenteReceived = 1;
+    PaymentFailed = 2;
+}
+

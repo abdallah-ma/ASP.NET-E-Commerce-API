@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+option csharp_namespace = "BasketService";
+
+package MyPackage;
+
+
+message GrpcBasketItem{
+    int32 Id = 1;
+    string ProductName = 2;
+    string Brand = 3;
+    double Price = 4;
+    string Category = 5;
+    string PictureUrl = 6;
+    int32 Quantity = 7;
+}

@@ -10,7 +10,7 @@ namespace ProductService.Helpers
         public MappingProfiles()
         {
            
-            CreateMap<Product, ProductToReturnDto>()
+            CreateMap<ProductService.Models.Product, ProductToReturnDto>()
             .ForMember(dest => dest.Brand , opt => opt.MapFrom(src => src.Brand.Name))
             .ForMember(dest => dest.Category, opt => opt.MapFrom(src => src.Category.Name));
             

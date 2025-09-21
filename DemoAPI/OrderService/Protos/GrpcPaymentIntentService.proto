@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option csharp_namespace = "OrderService";
+
+import "Basket Aggregate/GrpcBasketId.proto";
+import "Basket Aggregate/GrpcBasket.proto";
+import "Order Aggregate/GrpcOrder.proto";
+
+package MyPackage;
+
+
+
+service PaymentGrpcService{
+
+    rpc CreateOrUpdatePaymentIntent (GrpcBasketId) returns (GrpcBasket);
+
+    rpc UpdatePaymentIntentSucceededOrFailed (GrpcUpdateRequest) returns (GrpcOrder);
+}
+
+message GrpcUpdateRequest{
+    string PaymentIntentId = 1;
+    bool Successful = 2;
+}

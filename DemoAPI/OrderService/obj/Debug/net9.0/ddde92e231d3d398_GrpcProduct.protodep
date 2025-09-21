@@ -1,0 +1,3 @@
+obj\Debug\net9.0\product aggregate/GrpcProduct.cs: Protos/Product Aggregate/GrpcBrand.proto\
+ Protos/Product Aggregate/GrpcCategory.proto\
+ Protos/Product Aggregate/GrpcProduct.proto

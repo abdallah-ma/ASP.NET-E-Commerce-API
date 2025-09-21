@@ -1,0 +1,3 @@
+obj\Debug\net9.0/Order.cs \
+obj\Debug\net9.0/OrderGrpc.cs: C:/Users/Abdallah Mahmoud/.nuget/packages/grpc.tools/2.72.0/build/native/include/google/protobuf/timestamp.proto\
+ Protos/Order.proto

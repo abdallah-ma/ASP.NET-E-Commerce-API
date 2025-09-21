@@ -1,7 +1,9 @@
 using BasketService.Extensions;
 using StackExchange.Redis;
 using DemoAPI.Common.MassTransit;
-
+using BasketService;
+using Grpc.AspNetCore;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,8 +23,15 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddServices();
+builder.Services.AddGrpc();
 
-
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenLocalhost(4055, listenOptions =>
+    {
+        listenOptions.Protocols = HttpProtocols.Http2;
+    });
+});
 
 var app = builder.Build();
 
@@ -45,9 +54,22 @@ if (app.Environment.IsDevelopment())
 
 app.UseRouting();
 
+app.UseGrpcWeb();
+
+app.UseAuthentication();
+app.UseAuthorization();
+
+
+
 app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
+});
+
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapGrpcService<BasketService.BasketService>().EnableGrpcWeb();
 });
 
 app.Run();

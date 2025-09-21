@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DemoAPI\\PaymentService\\PaymentService.csproj": {}
+    "d:\\ASP.NET-E-Commerce-API\\DemoAPI\\PaymentService\\PaymentService.csproj": {}
   },
   "projects": {
-    "D:\\DemoAPI\\PaymentService\\PaymentService.csproj": {
+    "d:\\ASP.NET-E-Commerce-API\\DemoAPI.Common\\DemoAPI.Common\\DemoAPI.Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DemoAPI\\PaymentService\\PaymentService.csproj",
-        "projectName": "PaymentService",
-        "projectPath": "D:\\DemoAPI\\PaymentService\\PaymentService.csproj",
+        "projectUniqueName": "d:\\ASP.NET-E-Commerce-API\\DemoAPI.Common\\DemoAPI.Common\\DemoAPI.Common.csproj",
+        "projectName": "DemoAPI.Common",
+        "projectPath": "d:\\ASP.NET-E-Commerce-API\\DemoAPI.Common\\DemoAPI.Common\\DemoAPI.Common.csproj",
         "packagesPath": "C:\\Users\\Abdallah Mahmoud\\.nuget\\packages\\",
-        "outputPath": "D:\\DemoAPI\\PaymentService\\obj\\",
+        "outputPath": "d:\\ASP.NET-E-Commerce-API\\DemoAPI.Common\\DemoAPI.Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\visual studio shared comp\\NuGetPackages"
@@ -52,9 +52,128 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "MassTransit.AspNetCore": {
+              "target": "Package",
+              "version": "[7.3.1, )"
+            },
+            "MassTransit.RabbitMQ": {
+              "target": "Package",
+              "version": "[8.5.0, )"
+            },
+            "Microsoft.AspNetCore.Mvc": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.6, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[9.0.6, )"
+            },
+            "StackExchange.Redis": {
+              "target": "Package",
+              "version": "[2.8.41, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "d:\\ASP.NET-E-Commerce-API\\DemoAPI\\PaymentService\\PaymentService.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "d:\\ASP.NET-E-Commerce-API\\DemoAPI\\PaymentService\\PaymentService.csproj",
+        "projectName": "PaymentService",
+        "projectPath": "d:\\ASP.NET-E-Commerce-API\\DemoAPI\\PaymentService\\PaymentService.csproj",
+        "packagesPath": "C:\\Users\\Abdallah Mahmoud\\.nuget\\packages\\",
+        "outputPath": "d:\\ASP.NET-E-Commerce-API\\DemoAPI\\PaymentService\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "D:\\visual studio shared comp\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Abdallah Mahmoud\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net9.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "D:\\Packages": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net9.0": {
+            "targetAlias": "net9.0",
+            "projectReferences": {
+              "d:\\ASP.NET-E-Commerce-API\\DemoAPI.Common\\DemoAPI.Common\\DemoAPI.Common.csproj": {
+                "projectPath": "d:\\ASP.NET-E-Commerce-API\\DemoAPI.Common\\DemoAPI.Common\\DemoAPI.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net9.0": {
+          "targetAlias": "net9.0",
+          "dependencies": {
             "DemoAPI.Common": {
               "target": "Package",
               "version": "[1.0.2, )"
+            },
+            "Google.Protobuf": {
+              "target": "Package",
+              "version": "[3.32.0, )"
+            },
+            "Grpc.AspNetCore": {
+              "target": "Package",
+              "version": "[2.71.0, )"
+            },
+            "Grpc.AspNetCore.Web": {
+              "target": "Package",
+              "version": "[2.71.0, )"
+            },
+            "Grpc.Net.Client": {
+              "target": "Package",
+              "version": "[2.71.0, )"
+            },
+            "Grpc.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.72.0, )"
             },
             "Microsoft.AspNetCore.Authentication.JwtBearer": {
               "target": "Package",

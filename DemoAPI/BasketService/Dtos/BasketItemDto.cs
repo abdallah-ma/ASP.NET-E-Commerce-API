@@ -2,7 +2,7 @@
 
 namespace BasketService.Dtos
 {
-    public class BasketItemDto
+    public class    BasketItemDto
     {
 
 

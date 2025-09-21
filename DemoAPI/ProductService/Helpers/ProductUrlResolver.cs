@@ -4,7 +4,7 @@ using ProductService.Dtos;
 
 namespace ProductService.Helpers
 {
-    public class ProductUrlResolver : IValueResolver<Product , ProductToReturnDto,string>
+    public class ProductUrlResolver : IValueResolver<Models.Product , ProductToReturnDto,string>
     {
 
         public readonly IConfiguration Configuration;
@@ -14,7 +14,7 @@ namespace ProductService.Helpers
             Configuration = configuration;
         }
 
-        public string Resolve(Product Source,ProductToReturnDto Dest,string destmember,ResolutionContext context)
+        public string Resolve(Models.Product Source,ProductToReturnDto Dest,string destmember,ResolutionContext context)
         {
 
             if (!string.IsNullOrEmpty(Source.PictureUrl))

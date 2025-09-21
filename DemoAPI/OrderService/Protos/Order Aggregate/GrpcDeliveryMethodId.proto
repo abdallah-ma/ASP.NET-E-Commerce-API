@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+option csharp_namespace = "OrderService";
+
+package MyPackage;
+
+message GrpcDeliveryMethodId{
+    int32 Id = 1;
+}

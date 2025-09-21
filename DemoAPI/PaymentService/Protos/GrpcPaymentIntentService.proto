@@ -1,0 +1,22 @@
+syntax = "proto3";
+
+option csharp_namespace = "PaymentService";
+
+import "Common.proto";
+import "Order.proto";
+
+package MyPackage;
+
+
+
+service PaymentGrpcService{
+
+    rpc CreateOrUpdatePaymentIntent (GrpcBasketId) returns (GrpcBasket);
+
+    rpc UpdatePaymentIntentSucceededOrFailed (GrpcUpdateRequest) returns (GrpcOrder);
+}
+
+message GrpcUpdateRequest{
+    string PaymentIntentId = 1;
+    bool Successful = 2;
+}

@@ -1,7 +1,6 @@
 
 using DemoAPI.Common.Interfaces;
 using DemoAPI.Common;
-using ProductService.Interfaces;
 using ProductService.Helpers;
 
 
@@ -15,9 +14,8 @@ namespace ProductService.Extensions
             services.AddControllers();
             services.AddAutoMapper(M => M.AddProfile(new MappingProfiles()));
 
-            services.AddScoped<IProductService, ProductService>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
-            
+
 
             return services;
         }

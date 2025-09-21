@@ -1,0 +1,6 @@
+obj\Debug\net9.0/GrpcPaymentIntentService.cs \
+obj\Debug\net9.0/GrpcPaymentIntentServiceGrpc.cs: C:/Users/Abdallah Mahmoud/.nuget/packages/grpc.tools/2.72.0/build/native/include/google/protobuf/wrappers.proto\
+ Protos/Common.proto\
+ C:/Users/Abdallah Mahmoud/.nuget/packages/grpc.tools/2.72.0/build/native/include/google/protobuf/timestamp.proto\
+ Protos/Order.proto\
+ Protos/GrpcPaymentIntentService.proto

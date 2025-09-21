@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+option csharp_namespace = "OrderService";
+
+package MyPackage;
+
+
+
+
+message GrpcPaymentIntentId{
+    string PaymentIntentId = 1;
+}

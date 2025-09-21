@@ -4,6 +4,7 @@ using ProductService.Extensions;
 using ProductService;
 using DemoAPI.Common;
 using DemoAPI.Common.MassTransit;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,15 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddScoped<BaseDbContext>(provider => provider.GetRequiredService<AppDbContext>());
 builder.Services.AddServices();
+builder.Services.AddGrpc();
+
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenLocalhost(4058, listenOptions =>
+    {
+        listenOptions.Protocols = HttpProtocols.Http2;
+    });
+});
 
 var app = builder.Build();
 
@@ -51,10 +61,11 @@ catch (Exception ex)
 }
 
 app.UseHttpsRedirection();
+app.UseGrpcWeb();
 
 app.UseRouting();
 
 
-
 app.UseEndpoints(endpoints => endpoints.MapControllers());
+app.UseEndpoints(endpoints => endpoints.MapGrpcService<ProductGrpcService>().EnableGrpcWeb());
 app.Run();

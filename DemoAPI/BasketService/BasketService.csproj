@@ -9,8 +9,29 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="14.0.0" />
     <PackageReference Include="DemoAPI.Common" Version="1.0.1" />
+    <PackageReference Include="Google.Protobuf" Version="3.32.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.71.0" />
+    <PackageReference Include="Grpc.AspNetCore.Web" Version="2.71.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.71.0" />
+
+    <PackageReference Include="Grpc.Tools" Version="2.72.0">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.3" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+   <protobuf Include="Protos\GrpcBasketItem.proto" GrpcServices="None" ProtoRoot="Protos\" />
+   <protobuf Include="Protos\GrpcBasketId.proto" GrpcServices="None" ProtoRoot="Protos\" />
+
+  <protobuf Include="Protos\GrpcBasket.proto" GrpcServices="None" ProtoRoot="Protos\" />
+
+   <protobuf Include="Protos\GrpcBasketService.proto" GrpcServices="Server" ProtoRoot="Protos\" />
+   
+
+
   </ItemGroup>
 
 </Project>

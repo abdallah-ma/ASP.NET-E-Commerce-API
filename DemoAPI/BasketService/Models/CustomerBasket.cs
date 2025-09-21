@@ -13,6 +13,10 @@ namespace BasketService.Models
             Id = id;
         }
 
+        public CustomerBasket()
+        {
+        }
+
         public string Id { get; set; }
 
         public string? PaymentIntentId { get; set; }

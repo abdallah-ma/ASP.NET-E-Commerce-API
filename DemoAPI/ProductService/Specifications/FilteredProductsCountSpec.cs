@@ -3,7 +3,7 @@ using ProductService.Models;
 
 namespace ProductService.Specifications
 {
-    public class FilteredProductsCountSpec : BaseSpecifications<Product>
+    public class FilteredProductsCountSpec : BaseSpecifications<ProductService.Models.Product>
     {
 
         public FilteredProductsCountSpec(ProductSpecParams spec)

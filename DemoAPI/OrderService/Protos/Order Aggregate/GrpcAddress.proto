@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option csharp_namespace = "OrderService";
+
+package MyPackage;
+
+message GrpcAddress{
+    string FirstName = 1;
+    string LastName = 2;
+    string Country = 3;
+    string City = 4;
+    string Street = 5;
+}

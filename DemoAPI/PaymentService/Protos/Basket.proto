@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option csharp_namespace = "PaymentService";
+
+import  "Common.proto";
+
+package MyPackage;
+
+service BasketGrpcService{
+    rpc GetBasket (GrpcBasketId) returns (GrpcBasket);
+    
+    rpc UpdateBasket (GrpcBasket) returns (GrpcBasketUpdated);
+}
+
+message GrpcBasketUpdated{
+    bool IsUpdated = 1;
+}
+
+

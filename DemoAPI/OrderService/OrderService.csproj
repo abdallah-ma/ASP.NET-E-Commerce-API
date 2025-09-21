@@ -7,16 +7,57 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="14.0.0" />
-    <PackageReference Include="DemoAPI.Common" Version="1.0.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.6" />
-    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.3" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.6">
+    <Protobuf Include="Protos\Order Aggregate\GrpcProductItemOrdered.proto" GrpcServices="None" ProtoRoot="Protos\" />
+    <Protobuf Include="Protos\Order Aggregate\GrpcOrderItem.proto" GrpcServices="None" ProtoRoot="Protos\" />
+    <Protobuf Include="Protos\Order Aggregate\GrpcDeliveryMethod.proto" GrpcServices="None" ProtoRoot="Protos\" />
+    <Protobuf Include="Protos\Order Aggregate\GrpcDeliveryMethodId.proto" GrpcServices="None" ProtoRoot="Protos\" />
+    <Protobuf Include="Protos\Order Aggregate\GrpcAddress.proto" GrpcServices="None" ProtoRoot="Protos\" />
+    <Protobuf Include="Protos\Order Aggregate\GrpcOrderUpdated.proto" GrpcServices="None" ProtoRoot="Protos\" />
+    <Protobuf Include="Protos\Order Aggregate\GrpcOrder.proto" GrpcServices="None" ProtoRoot="Protos\" />
+    <Protobuf Include="Protos\Order Aggregate\GrpcPaymentIntentId.proto" GrpcServices="None" ProtoRoot="Protos\" />
+    <Protobuf Include="Protos\Order Aggregate\GrpcOrderStatus.proto" GrpcServices="None" ProtoRoot="Protos\" />
+    
+    <Protobuf Include="Protos\Order Aggregate\GrpcOrderService.proto" GrpcServices="Server" ProtoRoot="Protos\" />
+
+    <Protobuf Include="Protos\Basket Aggregate\GrpcBasketId.proto" GrpcServices="None" ProtoRoot="Protos\" />    
+    <Protobuf Include="Protos\Basket Aggregate\GrpcBasketItem.proto" GrpcServices="None" ProtoRoot="Protos\" />
+    <Protobuf Include="Protos\Basket Aggregate\GrpcBasket.proto" GrpcServices="None" ProtoRoot="Protos\" />
+    <Protobuf Include="Protos\Basket Aggregate\GrpcBasketService.proto" GrpcServices="Client" ProtoRoot="Protos\" />
+
+    <Protobuf Include="Protos\Product Aggregate\GrpcProductId.proto" GrpcServices="None" ProtoRoot="Protos\" />
+    <Protobuf Include="Protos\Product Aggregate\GrpcBrand.proto" GrpcServices="None" ProtoRoot="Protos\" />
+    <Protobuf Include="Protos\Product Aggregate\GrpcCategory.proto" GrpcServices="None" ProtoRoot="Protos\" />
+    <Protobuf Include="Protos\Product Aggregate\GrpcProduct.proto" GrpcServices="None" ProtoRoot="Protos\" />
+    <Protobuf Include="Protos\Product Aggregate\GrpcProductService.proto" GrpcServices="Client" ProtoRoot="Protos\" />
+
+    <Protobuf Include="Protos\GrpcPaymentIntentService.proto" GrpcServices="Client" ProtoRoot="Protos\" />
+
+
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="15.0.1" />
+    <PackageReference Include="Google.Protobuf" Version="3.32.0" />
+    <PackageReference Include="Grpc.AspNetCore" Version="2.71.0" />
+    <PackageReference Include="Grpc.AspNetCore.Web" Version="2.71.0" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.71.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.72.0">
+
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.6" />
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="9.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.3" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.8">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.8" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="9.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\DemoAPI.Common\DemoAPI.Common\DemoAPI.Common.csproj" />
   </ItemGroup>
 
 </Project>

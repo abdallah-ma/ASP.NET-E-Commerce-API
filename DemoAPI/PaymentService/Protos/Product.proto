@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+option csharp_namespace = "PaymentService";
+
+package MyPackage;
+
+service ProductGrpcService{
+    rpc GetProduct (GrpcProductId) returns (GrpcProduct); 
+}
+
+message GrpcProductId{
+    int32 Id = 1;
+}
+
+message GrpcProduct{
+    int32 Id = 1;
+    string Name = 2;
+    double Price = 3;
+    string PicturUrl = 4;
+    GrpcBrand Brand = 5;
+    GrpcCategory Category = 6;
+}
+
+message GrpcBrand{
+    int32 Id = 1;
+    string Name = 2;
+}
+
+message GrpcCategory{
+    int32 Id = 1;
+    string Name = 2;
+}

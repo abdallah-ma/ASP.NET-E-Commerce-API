@@ -10,10 +10,12 @@ namespace PaymentService.Controllers
 {
     public class PaymentsController : BaseAPIController
     {
-        private readonly IPaymentService _paymentService;
+        private readonly PaymentGrpcService.PaymentGrpcServiceClient _paymentService;
+
+        
         private readonly IConfiguration _configuration; 
 
-        public PaymentsController(IPaymentService paymentService, IConfiguration configuration)
+        public PaymentsController(PaymentGrpcService.PaymentGrpcServiceClient paymentService, IConfiguration configuration)
         {
             _paymentService = paymentService;
             _configuration = configuration;
@@ -23,7 +25,7 @@ namespace PaymentService.Controllers
         [Authorize(AuthenticationSchemes = "Bearer")]
         public async Task<ActionResult<CustomerBasket>> GetOrUpdatePaymentIntent(string BasketId)
         {
-            var Basket = await _paymentService.CreateOrUpdatePaymentIntentAsync(BasketId);
+            var Basket = await _paymentService.CreateOrUpdatePaymentIntentAsync(new GrpcBasketId { Id = BasketId });
 
             if (Basket == null)
             {
@@ -46,11 +48,11 @@ namespace PaymentService.Controllers
             {
                 case EventTypes.PaymentIntentSucceeded:  
 
-                    await _paymentService.UpdatePaymentIntentSucceededOrFailed(PaymentIntent.Id, true);
+                    await _paymentService.UpdatePaymentIntentSucceededOrFailedAsync(new GrpcUpdateRequest { PaymentIntentId = PaymentIntent.Id , Successful = true });
 
                     break;
                 case EventTypes.PaymentIntentPaymentFailed: 
-                    await _paymentService.UpdatePaymentIntentSucceededOrFailed(PaymentIntent.Id , false);
+                    await _paymentService.UpdatePaymentIntentSucceededOrFailedAsync(new GrpcUpdateRequest { PaymentIntentId = PaymentIntent.Id , Successful = false });
 
                     break;
                 default:

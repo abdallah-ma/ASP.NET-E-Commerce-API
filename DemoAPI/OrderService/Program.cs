@@ -1,9 +1,12 @@
+
 using OrderService.Extensions;
+
 using Microsoft.EntityFrameworkCore;
 using OrderService;
 using DemoAPI.Common;
 using OrderService.Helpers;
 using DemoAPI.Common.MassTransit;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -20,8 +23,15 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 });
 
 builder.Services.AddScoped<BaseDbContext>(provider => provider.GetRequiredService<AppDbContext>());
+builder.Services.AddGrpc();
 
-
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenLocalhost(4056, listenOptions =>
+    {
+        listenOptions.Protocols = HttpProtocols.Http2;
+    });
+});
 
 var app = builder.Build();
 
@@ -53,14 +63,25 @@ if (app.Environment.IsDevelopment())
         options.RoutePrefix = string.Empty;
     });
 }
+app.UseRouting();
+
+app.UseGrpcWeb();
+
+
 
 app.UseHttpsRedirection();
 
-app.UseRouting();
 
 app.UseAuthentication();
 app.UseAuthorization();
 
 app.UseEndpoints(endpoints => endpoints.MapControllers());
+
+app.UseEndpoints(endpoints =>
+{
+    endpoints.MapGrpcService<OrderMicroService>().EnableGrpcWeb();
+    
+});
+
 app.Run();
 

@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+option csharp_namespace = "OrderService";
+
+package MyPackage;
+
+import "google/protobuf/timestamp.proto";
+import "Order Aggregate/GrpcProductItemOrdered.proto";
+import "Order Aggregate/GrpcOrderItem.proto";
+import "Order Aggregate/GrpcAddress.proto";
+import "Order Aggregate/GrpcDeliveryMethod.proto";
+import "Order Aggregate/GrpcOrderStatus.proto";
+
+
+
+message GrpcOrder{
+    int32 Id = 1;
+    string BuyerEmail = 2;
+    GrpcAddress ShippingAddress = 3;
+
+    google.protobuf.Timestamp OrderDate = 4;
+    GrpcDeliveryMethod DeliveryMethod = 5;
+    GrpcOrderStatus OrderStatus = 6;
+    repeated GrpcOrderItem Items = 7;
+    double Subtotal = 8;
+    string PaymentIntentId = 9; 
+}
+
+
+
+
+
+
+
+
+
+
+

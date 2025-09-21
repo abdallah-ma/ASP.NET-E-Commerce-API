@@ -1,4 +1,5 @@
-﻿using ProductService.Models;
+﻿using ProductMicroService.Grpc;
+using ProductService.Models;
 using ProductService.Specifications;
 
 
@@ -7,11 +8,11 @@ namespace ProductService.Interfaces
     public interface IProductService
     {
 
-        public Task<Product> GetProductAsync(int productId);
+        public Task<GrpcProduct> GetProductAsync(int productId);
 
-        public Task<IEnumerable<Product>> GetProductsAsync(ProductSpecParams spec);
+        public Task<IEnumerable<GrpcProduct>> GetProductsAsync(ProductSpecParams spec);
 
-        public Task<int> GetCountAsync(ProductSpecParams spec);
+        public Task<int> GetCountAsync(FilteredProductsCountSpec spec);
 
         public Task<IEnumerable<Brand>> GetBrandsAsync();
 
