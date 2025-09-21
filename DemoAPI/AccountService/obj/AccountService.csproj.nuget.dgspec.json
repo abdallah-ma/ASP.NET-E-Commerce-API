@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\DemoAPI\\AccountService\\AccountService.csproj": {}
+    "D:\\ASP.NET-E-Commerce-API\\DemoAPI\\AccountService\\AccountService.csproj": {}
   },
   "projects": {
-    "D:\\DemoAPI\\AccountService\\AccountService.csproj": {
+    "D:\\ASP.NET-E-Commerce-API\\DemoAPI\\AccountService\\AccountService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\DemoAPI\\AccountService\\AccountService.csproj",
+        "projectUniqueName": "D:\\ASP.NET-E-Commerce-API\\DemoAPI\\AccountService\\AccountService.csproj",
         "projectName": "AccountService",
-        "projectPath": "D:\\DemoAPI\\AccountService\\AccountService.csproj",
+        "projectPath": "D:\\ASP.NET-E-Commerce-API\\DemoAPI\\AccountService\\AccountService.csproj",
         "packagesPath": "C:\\Users\\Abdallah Mahmoud\\.nuget\\packages\\",
-        "outputPath": "D:\\DemoAPI\\AccountService\\obj\\",
+        "outputPath": "D:\\ASP.NET-E-Commerce-API\\DemoAPI\\AccountService\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "D:\\visual studio shared comp\\NuGetPackages"
@@ -52,37 +52,23 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
-            "AutoMapper": {
+            "Google.Protobuf": {
               "target": "Package",
-              "version": "[14.0.0, )"
+              "version": "[3.32.0, )"
             },
-            "DemoAPI.Common": {
+            "Grpc.AspNetCore": {
               "target": "Package",
-              "version": "[1.0.2, )"
+              "version": "[2.64.0, )"
             },
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+            "Grpc.Net.Client": {
               "target": "Package",
-              "version": "[9.0.6, )"
+              "version": "[2.71.0, )"
             },
-            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+            "Grpc.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[9.0.6, )"
-            },
-            "Microsoft.AspNetCore.OpenApi": {
-              "target": "Package",
-              "version": "[9.0.3, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[9.0.6, )"
-            },
-            "Microsoft.IdentityModel.Tokens": {
-              "target": "Package",
-              "version": "[8.12.1, )"
-            },
-            "Swashbuckle.AspNetCore": {
-              "target": "Package",
-              "version": "[6.6.2, )"
+              "version": "[2.72.0, )"
             }
           },
           "imports": [

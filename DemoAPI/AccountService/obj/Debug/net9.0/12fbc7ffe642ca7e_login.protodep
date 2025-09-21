@@ -1,0 +1,2 @@
+obj\Debug\net9.0\Protos/Login.cs \
+obj\Debug\net9.0\Protos/LoginGrpc.cs: Protos/login.proto

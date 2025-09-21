@@ -1,0 +1,20 @@
+syntax = "proto3";
+
+option csharp_namespace = "AccountService";
+
+package Login;
+
+service Login{
+    rpc Login (LoginDto) returns (UserDto);
+}
+
+message LoginDto{
+    string Email = 1;
+    string Password = 2;
+}
+
+message UserDto{
+    string DisplayName = 1;
+    string Email = 2;
+    string Token = 3;
+}

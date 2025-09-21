@@ -1,57 +1,14 @@
-using AccountService.Extensions;
-using AccountService;
-using Microsoft.EntityFrameworkCore;
-using StackExchange.Redis;
-using Microsoft.Extensions.FileProviders;
-using Microsoft.AspNetCore.Builder.Extensions;
-using DemoAPI.Common.MassTransit;
+using AccountService.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
-
-builder.Services.AddOpenApi();
-
-builder.Services.AddMassTransitServiceWithRabbitMQ();
-
-builder.Services.AddSingleton<IConnectionMultiplexer>( (ServiceProvider) =>
-            {
-            var connection = builder.Configuration.GetConnectionString("Redis");
-            return ConnectionMultiplexer.Connect(connection);
-            });
-
-
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-builder.Services.AddServices();
-builder.Services.AddIdentityServices(builder.Configuration);
-
-
-builder.Services.AddDbContext<AppIdentityContext>(options =>
-    options.UseSqlServer(builder.Configuration.GetConnectionString("IdentityConnection")));
+// Add services to the container.
+builder.Services.AddGrpc();
 
 var app = builder.Build();
 
+// Configure the HTTP request pipeline.
+app.MapGrpcService<GreeterService>();
+app.MapGet("/", () => "Communication with gRPC endpoints must be made through a gRPC client. To learn how to create a client, visit: https://go.microsoft.com/fwlink/?linkid=2086909");
 
-
-
-if (app.Environment.IsDevelopment())
-{
-    app.MapOpenApi();
-    app.UseSwagger();
-    app.UseSwaggerUI(options => // UseSwaggerUI is called only in Development.
-    {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-        options.RoutePrefix = string.Empty;
-    });
-}
-
-
-
-
-app.UseRouting();
-app.UseEndpoints(endpoints => {
-    endpoints.MapControllers();
-});
 app.Run();
-
